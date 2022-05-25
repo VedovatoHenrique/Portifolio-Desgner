@@ -1,0 +1,149 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  color: #FFFF;
+  
+}
+:root{
+  font-size: 62,5%;
+  --font-family: 'Epilogue', sans-serif;
+  --hue: 250;
+  --bg-primary: hsl(var(--hue), 22%, 20%);
+  --color-font-primary: hsl(var(--hue), 0%, 100%); 
+  --color-font-secondary: hsl(var(--hue), 49%, 80%);
+  --color-font-text-primary: hsl(var(--hue), 100%, 11%);
+  --fs-body: 1.6rem;
+  --fs-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+  --fs-heading-small: clamp(3rem, 0.5rem + 3vw, 4rem);
+}
+header{
+  text-align: center;
+  margin: 10rem 0 8rem 0;
+}
+body{
+  background: var(--bg-primary)
+}
+main{
+  display: grid;
+  gap: 2.4rem;
+  animation: downtop 1400ms 1000ms backwards;
+}
+.page{
+  max-width: clamp(33rem, 20rem + 60vw, 177rem);
+  padding: 1rem;
+  margin: 0 auto;
+  margin-bottom: 10.5rem;
+}
+img{
+  width: 100%;
+  height: auto;
+  
+}
+h3{
+  color: var(--color-font-secondary);
+  text-transform: uppercase;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 3.2rem;
+  margin-bottom: 1.7rem;
+
+  animation: topdown;
+  animation-duration: 1400ms;
+}
+h1{
+  font-size: 4rem;
+  line-height: 4.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  animation:topdown 1800ms 400ms backwards;
+}
+.card h2 span{
+  color: var(--color-font-text-primary);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 3.2rem;
+
+  background-color: var(--color-font-primary);
+  padding: 0 1.6rem;
+  border-radius: 2rem;
+  height: 3.8rem;
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+}
+
+.card{
+  position: relative;
+}
+.card img{
+  height: 41.6rem;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: all 400ms;
+}
+.card img:hover{
+  transform: scale(1.1);
+  opacity: 0.5;
+  
+}
+.card h2{
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2.8rem;
+
+  font-size: var(--fs-heading-small);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+/*--------------------------------Animações--------------------*/
+
+@keyframes topdown {
+  0%{
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes downtop{
+  0%{
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*-----------------------Ajuste Responsivo Web -------------------*/
+
+
+@media (min-width: 1235px) {
+  
+  main{
+    grid-template-areas: "A B B" 
+    "C C D";
+  }
+  main div:nth-child(1){
+    grid-area: A;
+  }
+  main div:nth-child(2){
+    grid-area: B;
+  }
+  main div:nth-child(3){
+    grid-area: C;
+  }
+  main div:nth-child(4){
+    grid-area: D;
+  }
+}
